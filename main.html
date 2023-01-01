@@ -8,8 +8,24 @@
 
 <body>
 	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+	<input type="text" id="item-name-input" aria-label="Enter item name">
+	<input type="number" id="item-price-input" aria-label="Enter item price">
+	<!-- Add button -->
+	<button id="add" aria-label="Add item">Add</button>
+	<!-- Table to display shopping list -->
+	<table id="shopping-list" aria-role="table">
+		<!-- Initial row with grand total of 0 -->
+		<tr>
+			<th id="item">Item</th>
+			<th id="price">Price</th>
+		</tr>
+		<tr>
+			<td>Grand Total</td>
+			<td id="total">0</td>
+		</tr>
+	</table>
+	<script type="text/javascript" src="./script.js">
+	</script>
 
 </body>
 

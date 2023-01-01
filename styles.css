@@ -1,2 +1,18 @@
-
 /* Your CSS Code here. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style the table cells */
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style the table header */
+th {
+    background-color: #dddddd;
+}
