@@ -1,33 +1,33 @@
-//your code here
-const itemNameInput = document.getElementById("item-name-input");
-const itemPriceInput = document.getElementById("item-price-input");
-const addButton = document.getElementById("add");
-const shoppingList = document.getElementById("shopping-list");
-// Get reference to grand total cell
-const grandTotalCell = document.getElementById("total");
-// Initialize grand total to 0
+const itemNameInput = document.getElementById('item-name-input');
+const itemPriceInput = document.getElementById('item-price-input');
+const addButton = document.getElementById('add');
+const shoppingList = document.getElementById('shopping-list');
+const totalHeading = document.getElementById('total');
+
 let grandTotal = 0;
 
-// Function to add a new row to the table
-function addRow() {
-    // Get the item name and price from the input fields
+addButton.addEventListener('click', () => {
     const itemName = itemNameInput.value;
     const itemPrice = itemPriceInput.value;
-    // Ignore the row if either input field is empty or the price is not a valid number
-    if (!itemName || !itemPrice || isNaN(itemPrice)) return;
-    // Add a new row to the table with the item name and price
-    const row = shoppingList.insertRow(-1);
-    const nameCell = row.insertCell(0);
-    const priceCell = row.insertCell(1);
-    nameCell.innerHTML = itemName;
-    priceCell.innerHTML = itemPrice;
-    // Clear the input fields
-    itemNameInput.value = "";
-    itemPriceInput.value = "";
-    // Update the grand total
-    grandTotal += parseFloat(itemPrice);
-    grandTotalCell.innerHTML = grandTotal;
-}
 
-// Add a new row when the add button is clicked
-addButton.addEventListener("click", addRow);
+    if (!itemName || !itemPrice) {
+        return; // invalid input, do nothing
+    }
+
+    grandTotal += parseFloat(itemPrice);
+
+    const row = document.createElement('tr');
+    const itemColumn = document.createElement('td');
+    itemColumn.textContent = itemName;
+    row.appendChild(itemColumn);
+    const priceColumn = document.createElement('td');
+    priceColumn.textContent = itemPrice;
+    row.appendChild(priceColumn);
+    shoppingList.appendChild(row);
+
+    totalHeading.textContent = grandTotal;
+
+    // clear input fields
+    itemNameInput.value = '';
+    itemPriceInput.value = '';
+});
